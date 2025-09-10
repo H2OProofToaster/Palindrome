@@ -21,7 +21,7 @@ int main()
   {
 
     //Debug
-    std::cout << "Validating" << input[i] << placedCounter << "\n";
+    std::cout << "Validating " << input[i] << " " << placedCounter << "\n";
     
     //Checks for termination
     if(input[i] == '\0')
@@ -46,17 +46,20 @@ int main()
   }
 
   //Debug
-  std::cout << "Formatted input" << formattedInput;
+  std::cout << "Formatted input " << formattedInput << "\n";
 
   //Iterate from back to find terminator, then start there
   char reverse[80];
-  for(int i = 81; i >= 0; i--)
+  for(int i = 0; i <= 81; i++)
   {
     if(formattedInput[i] == '\0')
     {
+      std::cout << "Terminator at " << i << "\n";
       for(int j = i - 1; j >= 0; j--)
       {
-	reverse[i - j] = formattedInput[j];
+	std::cout << "Reverse so far " << reverse << "\n";
+	reverse[i - j - 1] = formattedInput[j];
+	std::cout << "Reverse after " << formattedInput[j] << " " << reverse << "\n";
       }
       reverse[i] = '\0';
       break;
@@ -64,7 +67,7 @@ int main()
   }
 
   //Debug
-  std::cout << "Reversed" << reverse;
+  std::cout << "Reversed done " << reverse << "\n";
 
   //Check if palindrome
   bool isPalindrome = false;
